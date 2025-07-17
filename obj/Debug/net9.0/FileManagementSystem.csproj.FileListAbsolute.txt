@@ -31,3 +31,4 @@
 /home/praxx/Philes/CDC_Assignments/Infonetica/file_management_system/FileManagementSystem/obj/Debug/net9.0/FileManagementSystem.pdb
 /home/praxx/Philes/CDC_Assignments/Infonetica/file_management_system/FileManagementSystem/obj/Debug/net9.0/FileManagementSystem.genruntimeconfig.cache
 /home/praxx/Philes/CDC_Assignments/Infonetica/file_management_system/FileManagementSystem/obj/Debug/net9.0/ref/FileManagementSystem.dll
+/home/praxx/Philes/CDC_Assignments/Infonetica/file_management_system/FileManagementSystem/obj/Debug/net9.0/FileManagementSystem.sourcelink.json

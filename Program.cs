@@ -3,14 +3,18 @@ using FileManagementSystem.Repositories;
 using FileManagementSystem.Services;
 using FileManagementSystem.Services.Interfaces;
 using FileManagementSystem.Validation;
+using FileManagementSystem.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddScoped<JsonPersistenceManager>();
 builder.Services.AddScoped<IFolderService, FolderService>();
 builder.Services.AddScoped<IFileService, FileService>();
+builder.Services.AddScoped<IFileHistoryService, FileHistoryService>();
 builder.Services.AddScoped<IFolderRepository, FolderRepository>();
 builder.Services.AddScoped<IFileRepository, FileRepository>();
+builder.Services.AddScoped<IFileHistoryRepository, FileHistoryRepository>();
 builder.Services.AddScoped<FolderValidator>();
 builder.Services.AddControllers();
 

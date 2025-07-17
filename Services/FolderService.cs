@@ -38,7 +38,6 @@ namespace FileManagementSystem.Services
             };
 
             var createdFolder = await _folderRepository.CreateAsync(folder);
-            await _folderRepository.LogActionAsync(null, createdFolder.Id, "Created", $"Folder '{createdFolder.Name}' created");
 
             return await MapToResponseDto(createdFolder);
         }
@@ -127,7 +126,6 @@ namespace FileManagementSystem.Services
             folder.Name = renameDto.NewName;
 
             var updatedFolder = await _folderRepository.UpdateAsync(folder);
-            await _historyService.LogActionAsync(null, updatedFolder.Id, "Renamed", $"Folder renamed from '{oldName}' to '{updatedFolder.Name}'");
 
             return await MapToResponseDto(updatedFolder);
         }
@@ -148,8 +146,6 @@ namespace FileManagementSystem.Services
 
             var oldParentName = oldParentId.HasValue ? (await _folderRepository.GetByIdAsync(oldParentId.Value))?.Name ?? "Unknown" : "Root";
             var newParentName = moveDto.NewParentFolderId.HasValue ? (await _folderRepository.GetByIdAsync(moveDto.NewParentFolderId.Value))?.Name ?? "Unknown" : "Root";
-
-            await _historyService.LogActionAsync(null, updatedFolder.Id, "Moved", $"Folder moved from '{oldParentName}' to '{newParentName}'");
 
             return await MapToResponseDto(updatedFolder);
         }
@@ -175,7 +171,6 @@ namespace FileManagementSystem.Services
                 foreach (var file in files)
                 {
                     await _fileRepository.DeleteAsync(file.Id);
-                    await _historyService.LogActionAsync(file.Id, null, "Deleted", "File deleted due to parent folder deletion");
                 }
 
                 foreach (var subfolder in subfolders)
@@ -185,7 +180,6 @@ namespace FileManagementSystem.Services
             }
 
             await _folderRepository.DeleteAsync(id);
-            await _historyService.LogActionAsync(null, id, "Deleted", $"Folder '{folder.Name}' deleted");
 
             return true;
         }

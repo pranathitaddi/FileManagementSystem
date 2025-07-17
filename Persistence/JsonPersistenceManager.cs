@@ -39,7 +39,6 @@ public class JsonPersistenceManager
         }
         catch (Exception ex)
         {
-            // TODO: Add proper logging
             Console.WriteLine($"Error loading data: {ex.Message}");
             return new DataContainer();
         }
@@ -54,7 +53,6 @@ public class JsonPersistenceManager
         }
         catch (Exception ex)
         {
-            // TODO: Add proper logging
             Console.WriteLine($"Error saving data: {ex.Message}");
             throw;
         }

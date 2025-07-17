@@ -120,9 +120,6 @@ public class FolderRepository : IFolderRepository
         await LoadDataAsync();
         // Check if folder has any child folders
         var hasChildFolders = _folders.Any(f => f.ParentFolderId == folderId);
-        
-        // TODO: Also check for files in this folder
-        // This would require access to file repository, which we'll handle in the service layer
         return !hasChildFolders;
     }
 

@@ -1,4 +1,3 @@
-[] Fix the errors in Interfaces of Services
-[] Rewrite the FileValidator.cs
-[] Rewrite the FileService.cs
-[] check parent folder in ifilerepository
+[] Add Propper Logging to each service
+[] Check for files in the folder when returning isEmpty
+[] To be able to parse csv files
